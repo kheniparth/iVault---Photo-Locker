@@ -99,6 +99,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func copySharedImagesToDocumentDirectory(){
+        
         let containerURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.iVault.ShareExtension")
         let filePath = containerURL!.path! as NSString
         let items = try! NSFileManager.defaultManager().contentsOfDirectoryAtPath(filePath as String)
@@ -112,6 +113,15 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
                     if let jpegData = UIImageJPEGRepresentation(image, 80) {
                         jpegData.writeToFile(self.fileInDocumentsDirectory(item), atomically: true)
 //                        print("new image at = \(filePath)/\(item)")
+
+                            var error:NSErrorPointer = NSErrorPointer()
+                            do{
+                                try NSFileManager.defaultManager().removeItemAtPath(imagePath)
+//                                print("item delete at path \(imagePath)")
+                            }catch{
+                                print(error)
+                            }
+                            
                         
                     }
                     
@@ -119,6 +129,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
             }
             
         }
+        
 
     }
 
