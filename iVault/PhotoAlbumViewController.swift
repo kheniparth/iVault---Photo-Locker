@@ -31,6 +31,29 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
     
     @IBOutlet var collectionView : UICollectionView!
     
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    
+    @IBAction func shareButtonClicked(sender: AnyObject) {
+        
+        let indexpaths = collectionView?.indexPathsForSelectedItems()
+        var imageArray = [UIImage]()
+
+        for indexpath  in indexpaths! {
+            
+            let imagePath = fileInDocumentsDirectory(imageFileNames[indexpath.item])
+            imageArray.append(self.loadImageFromPath(imagePath)!)
+
+            
+        }
+        
+            if !imageArray.isEmpty{
+                let vc = UIActivityViewController(activityItems: imageArray, applicationActivities: [])
+                presentViewController(vc, animated: true, completion: nil)
+            }
+        
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -173,9 +196,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         for indexpath  in indexpaths! {
             let cell = collectionView!.cellForItemAtIndexPath(indexpath )
             
-//            collectionView?.deselectItemAtIndexPath(indexpath, animated: true)
             let imagePath = fileInDocumentsDirectory(imageFileNames[indexpath.item])
-//            let image : UIImage = self.loadImageFromPath(imagePath)!
             selectedPhotos.append(imagePath)
             
             let alert = UIAlertController(title: "Delete Image", message: "Are you sure you want to delete this image(s)?", preferredStyle: .Alert)
@@ -189,7 +210,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
                 //Do not delete photo
                 alert.dismissViewControllerAnimated(true, completion: nil)
             }))
-//            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
             self.presentViewController(alert, animated: true, completion: nil)
             
 

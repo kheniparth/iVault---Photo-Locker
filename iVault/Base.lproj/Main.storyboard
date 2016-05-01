@@ -168,7 +168,11 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="1Dv-Rt-m2n"/>
-                        <barButtonItem systemItem="action" id="EZP-xO-9Ld"/>
+                        <barButtonItem systemItem="action" id="EZP-xO-9Ld">
+                            <connections>
+                                <action selector="shareButtonClicked:" destination="Qxo-DM-sPS" id="cUE-ZU-234"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Photo Album" id="d17-1x-PKk">
                         <barButtonItem key="backBarButtonItem" title="Back" id="WZT-rR-n3M"/>
@@ -177,6 +181,7 @@
                     <connections>
                         <outlet property="collectionView" destination="B5p-iD-MeC" id="uKF-Qp-9sT"/>
                         <outlet property="noPhotosLabel" destination="rZP-Wl-cuh" id="pPJ-0Y-UMT"/>
+                        <outlet property="shareButton" destination="EZP-xO-9Ld" id="QbW-nr-z42"/>
                         <outlet property="trashButton" destination="gn1-oi-1CP" id="U70-pl-fDi"/>
                         <outlet property="unlockButton" destination="cK4-R4-UbW" id="LLB-hm-JV9"/>
                     </connections>
