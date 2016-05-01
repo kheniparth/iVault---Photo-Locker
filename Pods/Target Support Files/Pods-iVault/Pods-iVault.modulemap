@@ -1,0 +1,6 @@
+framework module Pods_iVault {
+  umbrella header "Pods-iVault-umbrella.h"
+
+  export *
+  module * { export * }
+}

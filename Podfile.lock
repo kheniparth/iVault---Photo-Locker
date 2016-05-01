@@ -1,0 +1,17 @@
+PODS:
+  - DKImagePickerController (3.1.3):
+    - DKImagePickerController/Camera (= 3.1.3)
+    - DKImagePickerController/ImageManager (= 3.1.3)
+  - DKImagePickerController/Camera (3.1.3)
+  - DKImagePickerController/ImageManager (3.1.3)
+  - ImageScrollView (1.1)
+
+DEPENDENCIES:
+  - DKImagePickerController
+  - ImageScrollView
+
+SPEC CHECKSUMS:
+  DKImagePickerController: 5ad3a065e65287c1584e4250e378f99102e2753e
+  ImageScrollView: 2c9adef18c5b6bd9a499c9babaf4cd7b6df703eb
+
+COCOAPODS: 0.39.0

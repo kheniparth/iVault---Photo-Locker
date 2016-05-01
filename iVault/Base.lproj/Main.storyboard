@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Pv6-Be-uDU">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Temp Lock View Controller-->
+        <scene sceneID="3L1-WE-NZV">
+            <objects>
+                <viewController storyboardIdentifier="tempLock" id="ddl-zh-4gV" customClass="TempLockViewController" customModule="iVault" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XPX-U2-sgj"/>
+                        <viewControllerLayoutGuide type="bottom" id="mvu-rB-iqS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zTn-EG-h0U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxu-pt-pfd">
+                                <rect key="frame" x="100" y="240" width="175" height="188"/>
+                                <state key="normal" title="Button" image="appIcon"/>
+                                <connections>
+                                    <action selector="touchIDButtonClicked:" destination="ddl-zh-4gV" eventType="touchUpInside" id="8kx-gj-DeJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="iVault" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D01-fb-kJe">
+                                <rect key="frame" x="120" y="192" width="135" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#TechMuzz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoU-hA-A8V">
+                                <rect key="frame" x="142" y="638" width="90" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YuB-Yx-GVt"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="touchIDButton" destination="jxu-pt-pfd" id="lcR-Er-lMh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VbK-sb-X3m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1823.5" y="-518.5"/>
+        </scene>
+        <!--Authentication View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="AuthenticationViewController" customModule="iVault" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3sc-Qr-9MG">
+                                <rect key="frame" x="100" y="240" width="175" height="188"/>
+                                <state key="normal" title="Button" image="appIcon"/>
+                                <connections>
+                                    <action selector="touchIDButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yeZ-nD-SzU"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#TechMuzz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Es8-Lf-UM7">
+                                <rect key="frame" x="138" y="638" width="98" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="iVault" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6da-qS-Uz9">
+                                <rect key="frame" x="120" y="192" width="135" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6Xp-Cz-bqT"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="touchIDButton" destination="3sc-Qr-9MG" id="XE4-E2-mPq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.5" y="408.5"/>
+        </scene>
+        <!--Photo Album-->
+        <scene sceneID="a7F-rZ-wPk">
+            <objects>
+                <viewController storyboardIdentifier="PhotoAlbum" id="Qxo-DM-sPS" customClass="PhotoAlbumViewController" customModule="iVault" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5AC-ay-h8w"/>
+                        <viewControllerLayoutGuide type="bottom" id="nCr-Rx-Ugd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="axW-33-QU1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B5p-iD-MeC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fhK-PG-6gF">
+                                    <size key="itemSize" width="105" height="105"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="mDt-ge-CyE" customClass="PhotoThumbnail" customModule="iVault" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="64" width="105" height="105"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oEN-Nf-jNB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <size key="customSize" width="105" height="105"/>
+                                        <connections>
+                                            <outlet property="imgView" destination="oEN-Nf-jNB" id="J68-pQ-6VZ"/>
+                                            <segue destination="OKQ-x3-Lul" kind="show" identifier="PhotoSliderWithCell" id="JNA-Xu-QGm"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Qxo-DM-sPS" id="Yqw-QP-lGd"/>
+                                    <outlet property="delegate" destination="Qxo-DM-sPS" id="oEk-2n-d9V"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Photos Available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZP-Wl-cuh">
+                                <rect key="frame" x="0.0" y="312" width="375" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem systemItem="trash" id="gn1-oi-1CP">
+                            <connections>
+                                <action selector="trashButtonClicked:" destination="Qxo-DM-sPS" id="To0-X4-Tkh"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="nZJ-tR-QQa"/>
+                        <barButtonItem systemItem="organize" id="LOb-CU-2nH">
+                            <connections>
+                                <action selector="StartImagePicker:" destination="Qxo-DM-sPS" id="3cf-OR-JzA"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="X6S-5L-gHt"/>
+                        <barButtonItem title="Unlock" id="cK4-R4-UbW">
+                            <connections>
+                                <action selector="unlockButtonClicked:" destination="Qxo-DM-sPS" id="V1p-km-isc"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="1Dv-Rt-m2n"/>
+                        <barButtonItem systemItem="action" id="EZP-xO-9Ld"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Photo Album" id="d17-1x-PKk">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="WZT-rR-n3M"/>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="collectionView" destination="B5p-iD-MeC" id="uKF-Qp-9sT"/>
+                        <outlet property="noPhotosLabel" destination="rZP-Wl-cuh" id="pPJ-0Y-UMT"/>
+                        <outlet property="trashButton" destination="gn1-oi-1CP" id="U70-pl-fDi"/>
+                        <outlet property="unlockButton" destination="cK4-R4-UbW" id="LLB-hm-JV9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YAk-UB-d3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2661.5" y="400.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="DQH-o9-lEx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pv6-Be-uDU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MuG-xX-heY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="mWz-3i-Xhg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JYJ-o3-ebV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="406" y="389"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="koI-00-0jV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BO5-xW-IXW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="T7g-ye-GYV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="1Vx-A9-z51">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="Qxo-DM-sPS" kind="relationship" relationship="rootViewController" id="JQe-si-e7g"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nvd-6o-gYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1850" y="401"/>
+        </scene>
+        <!--Photo Slider View Controller-->
+        <scene sceneID="Ypv-s2-zU7">
+            <objects>
+                <viewController id="OKQ-x3-Lul" customClass="PhotoSliderViewController" customModule="iVault" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="K9M-Oz-AXc"/>
+                        <viewControllerLayoutGuide type="bottom" id="rMP-Gu-3fY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wh6-YR-Ccp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uge-HU-4jI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3307.5" y="408.5"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="w3d-Sw-mIE">
+            <objects>
+                <pageViewController storyboardIdentifier="PhotoSliderController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="xDI-0c-3Va" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7w0-Ph-4PO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3898" y="442"/>
+        </scene>
+        <!--Photo Slider Item Controller-->
+        <scene sceneID="fQm-wX-c0W">
+            <objects>
+                <viewController storyboardIdentifier="ItemController" id="RmE-7Q-QN3" customClass="PhotoSliderItemController" customModule="iVault" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vxe-cx-wAz"/>
+                        <viewControllerLayoutGuide type="bottom" id="gQZ-hA-LES"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VsO-E6-AJb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gpp-lf-AxW" customClass="ImageScrollView" customModule="ImageScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageScrollView" destination="Gpp-lf-AxW" id="jxM-UC-E4S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PDf-H0-dc1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3307.5" y="1156.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="appIcon" width="175" height="175"/>
+    </resources>
+</document>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>DKImagePickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ImageScrollView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-iVault.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-iVaultTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>65F0E7C0F3AEA265FA01E424A6E81BE2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7116AA14740A17264FF47B18C2B67020</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B1FBB3DA549F4E64345B3BB249177450</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1CC98ED9F3402C56956F9C36C471EF1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
