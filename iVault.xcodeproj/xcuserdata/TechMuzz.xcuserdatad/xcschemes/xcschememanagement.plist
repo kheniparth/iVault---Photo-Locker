@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ShareExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>iVault.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +28,21 @@
 			<true/>
 		</dict>
 		<key>7E31EE6C1CC15486008B725C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7EBF2A291CD65E7C00076342</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7EBF2A3E1CD66BDD00076342</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7EBF2A541CD6732A00076342</key>
 		<dict>
 			<key>primary</key>
 			<true/>

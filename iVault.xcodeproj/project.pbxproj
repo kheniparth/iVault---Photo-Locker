@@ -26,6 +26,9 @@
 		7E86742A1CC7F8D7006712C0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E8674291CC7F8D7006712C0 /* QuartzCore.framework */; };
 		7EBB2D081CD3B6D200D41F22 /* PhotoSliderItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBB2D071CD3B6D200D41F22 /* PhotoSliderItemController.swift */; };
 		7EBB2D0A1CD3B8A400D41F22 /* PhotoSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBB2D091CD3B8A400D41F22 /* PhotoSliderViewController.swift */; };
+		7EBF2A581CD6732A00076342 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF2A571CD6732A00076342 /* ShareViewController.swift */; };
+		7EBF2A5B1CD6732A00076342 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EBF2A591CD6732A00076342 /* MainInterface.storyboard */; };
+		7EBF2A5F1CD6732A00076342 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7EBF2A551CD6732A00076342 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7EE293AE1CD58D5000E77765 /* ImageScrollView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE293AD1CD58D5000E77765 /* ImageScrollView.framework */; };
 		7EE293B01CD5B58F00E77765 /* TempLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE293AF1CD5B58F00E77765 /* TempLockViewController.swift */; };
 		BB73E8CBBB9E9C61E18F2E4C /* Pods_iVaultTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A74C83FD90B34ED75AE747E /* Pods_iVaultTests.framework */; };
@@ -47,7 +50,28 @@
 			remoteGlobalIDString = 7E31EE4A1CC15484008B725C;
 			remoteInfo = iVault;
 		};
+		7EBF2A5D1CD6732A00076342 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E31EE431CC15484008B725C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EBF2A541CD6732A00076342;
+			remoteInfo = ShareExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7EBF2A4D1CD66BDD00076342 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7EBF2A5F1CD6732A00076342 /* ShareExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0F5874DD8E427A80B982D308 /* Pods-iVaultTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iVaultTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iVaultTests/Pods-iVaultTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +107,12 @@
 		7E8674291CC7F8D7006712C0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7EBB2D071CD3B6D200D41F22 /* PhotoSliderItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSliderItemController.swift; sourceTree = "<group>"; };
 		7EBB2D091CD3B8A400D41F22 /* PhotoSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSliderViewController.swift; sourceTree = "<group>"; };
+		7EBF2A3A1CD65F0600076342 /* iVault.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = iVault.entitlements; sourceTree = "<group>"; };
+		7EBF2A551CD6732A00076342 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EBF2A571CD6732A00076342 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		7EBF2A5A1CD6732A00076342 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		7EBF2A5C1CD6732A00076342 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EBF2A631CD6733100076342 /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ShareExtension.entitlements; sourceTree = "<group>"; };
 		7EE293AD1CD58D5000E77765 /* ImageScrollView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageScrollView.framework; path = "Pods/../build/Debug-iphoneos/ImageScrollView.framework"; sourceTree = "<group>"; };
 		7EE293AF1CD5B58F00E77765 /* TempLockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempLockViewController.swift; sourceTree = "<group>"; };
 		B05B7D79566A56BAAEC5F97C /* Pods-iVault.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iVault.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iVault/Pods-iVault.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +150,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7EBF2A521CD6732A00076342 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -140,6 +177,7 @@
 				7E31EE4D1CC15484008B725C /* iVault */,
 				7E31EE651CC15485008B725C /* iVaultTests */,
 				7E31EE701CC15486008B725C /* iVaultUITests */,
+				7EBF2A561CD6732A00076342 /* ShareExtension */,
 				7E31EE4C1CC15484008B725C /* Products */,
 				043ECEF46F56E48C7E6AE22C /* Pods */,
 				EF85FC53605EA01912A368B1 /* Frameworks */,
@@ -152,6 +190,7 @@
 				7E31EE4B1CC15484008B725C /* iVault.app */,
 				7E31EE621CC15485008B725C /* iVaultTests.xctest */,
 				7E31EE6D1CC15486008B725C /* iVaultUITests.xctest */,
+				7EBF2A551CD6732A00076342 /* ShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,6 +198,7 @@
 		7E31EE4D1CC15484008B725C /* iVault */ = {
 			isa = PBXGroup;
 			children = (
+				7EBF2A3A1CD65F0600076342 /* iVault.entitlements */,
 				7E31EE4E1CC15484008B725C /* AppDelegate.swift */,
 				7E31EE501CC15484008B725C /* ViewController.swift */,
 				7E7A52AD1CC2810100677D44 /* AuthenticationViewController.swift */,
@@ -194,6 +234,17 @@
 			path = iVaultUITests;
 			sourceTree = "<group>";
 		};
+		7EBF2A561CD6732A00076342 /* ShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				7EBF2A631CD6733100076342 /* ShareExtension.entitlements */,
+				7EBF2A571CD6732A00076342 /* ShareViewController.swift */,
+				7EBF2A591CD6732A00076342 /* MainInterface.storyboard */,
+				7EBF2A5C1CD6732A00076342 /* Info.plist */,
+			);
+			path = ShareExtension;
+			sourceTree = "<group>";
+		};
 		EF85FC53605EA01912A368B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,10 +278,12 @@
 				7E31EE491CC15484008B725C /* Resources */,
 				587D02E61D96F583B39C6869 /* Embed Pods Frameworks */,
 				AAB1841AF8A52FF927F83F88 /* Copy Pods Resources */,
+				7EBF2A4D1CD66BDD00076342 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7EBF2A5E1CD6732A00076342 /* PBXTargetDependency */,
 			);
 			name = iVault;
 			productName = iVault;
@@ -276,6 +329,23 @@
 			productReference = 7E31EE6D1CC15486008B725C /* iVaultUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		7EBF2A541CD6732A00076342 /* ShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EBF2A601CD6732A00076342 /* Build configuration list for PBXNativeTarget "ShareExtension" */;
+			buildPhases = (
+				7EBF2A511CD6732A00076342 /* Sources */,
+				7EBF2A521CD6732A00076342 /* Frameworks */,
+				7EBF2A531CD6732A00076342 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShareExtension;
+			productName = ShareExtension;
+			productReference = 7EBF2A551CD6732A00076342 /* ShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -288,7 +358,12 @@
 				TargetAttributes = {
 					7E31EE4A1CC15484008B725C = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = QWUWDP47C5;
+						DevelopmentTeam = 6M58TWX7AG;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					7E31EE611CC15485008B725C = {
 						CreatedOnToolsVersion = 7.2;
@@ -299,6 +374,15 @@
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = QWUWDP47C5;
 						TestTargetID = 7E31EE4A1CC15484008B725C;
+					};
+					7EBF2A541CD6732A00076342 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 6M58TWX7AG;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -318,6 +402,7 @@
 				7E31EE4A1CC15484008B725C /* iVault */,
 				7E31EE611CC15485008B725C /* iVaultTests */,
 				7E31EE6C1CC15486008B725C /* iVaultUITests */,
+				7EBF2A541CD6732A00076342 /* ShareExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -344,6 +429,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EBF2A531CD6732A00076342 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EBF2A5B1CD6732A00076342 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +568,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7EBF2A511CD6732A00076342 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EBF2A581CD6732A00076342 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -487,6 +588,11 @@
 			isa = PBXTargetDependency;
 			target = 7E31EE4A1CC15484008B725C /* iVault */;
 			targetProxy = 7E31EE6E1CC15486008B725C /* PBXContainerItemProxy */;
+		};
+		7EBF2A5E1CD6732A00076342 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7EBF2A541CD6732A00076342 /* ShareExtension */;
+			targetProxy = 7EBF2A5D1CD6732A00076342 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -505,6 +611,14 @@
 				7E8667D01CCBEE310004CB9F /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7EBF2A591CD6732A00076342 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7EBF2A5A1CD6732A00076342 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -598,6 +712,10 @@
 			baseConfigurationReference = B05B7D79566A56BAAEC5F97C /* Pods-iVault.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iVault/iVault.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/build/Release-iphoneos",
@@ -607,6 +725,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = techmuzz.iVault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
@@ -616,6 +735,10 @@
 			baseConfigurationReference = B2B805C59AE848DBE5DFF330 /* Pods-iVault.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iVault/iVault.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/build/Release-iphoneos",
@@ -625,6 +748,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = techmuzz.iVault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
@@ -679,6 +803,34 @@
 			};
 			name = Release;
 		};
+		7EBF2A611CD6732A00076342 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = techmuzz.iVault.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7EBF2A621CD6732A00076342 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = techmuzz.iVault.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -717,6 +869,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		7EBF2A601CD6732A00076342 /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EBF2A611CD6732A00076342 /* Debug */,
+				7EBF2A621CD6732A00076342 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 

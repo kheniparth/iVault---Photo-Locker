@@ -11,6 +11,7 @@ import UIKit
 import Photos
 import DKImagePickerController
 
+
 var picking : Bool = false
 
 class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -61,12 +62,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
 
         navigationItem.rightBarButtonItem = editButtonItem()
         
-//        navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed: "plus.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
-//            style:UIBarButtonItemStylePlain
-//            target:self
-//            action:@selector(info:)];
-
-
         loadImages()
     }
     
@@ -79,7 +74,10 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         let items = try! fm.contentsOfDirectoryAtPath(path as String)
         
         for item in items {
-            self.imageFileNames.append(item)
+            let imagePath = fileInDocumentsDirectory(item)
+            if let image = try UIImage(contentsOfFile: imagePath){
+                self.imageFileNames.append(item)
+            }
         }
 
         if self.imageFileNames.count >= 0{
@@ -99,11 +97,34 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
 
 
     }
+    
+    func copySharedImagesToDocumentDirectory(){
+        let containerURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.iVault.ShareExtension")
+        let filePath = containerURL!.path! as NSString
+        let items = try! NSFileManager.defaultManager().contentsOfDirectoryAtPath(filePath as String)
+        
+        for item in items {
+            
+            do{
+                let imagePath = filePath.stringByAppendingPathComponent(item)
+                if let image = try UIImage(contentsOfFile: imagePath){
+                    
+                    if let jpegData = UIImageJPEGRepresentation(image, 80) {
+                        jpegData.writeToFile(self.fileInDocumentsDirectory(item), atomically: true)
+//                        print("new image at = \(filePath)/\(item)")
+                        
+                    }
+                    
+                }
+            }
+            
+        }
+
+    }
 
     
     override func viewWillAppear(animated: Bool) {
         
-       
         
         // Get size of the collectionView cell for thumbnail image
         if let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout{
@@ -123,7 +144,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         self.navigationController?.hidesBarsOnTap = false   //!! Use optional chaining
         
         //fetch the photos from collection
-
+        copySharedImagesToDocumentDirectory()
         loadImages()
         self.collectionView.reloadData()
     }
@@ -411,14 +432,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
                     self.collectionView.reloadData()
                     
                 }
-
-//                if info!.keys.contains(NSString(string: "PHImageFileURLKey"))
-//                {
-//                    let imageUrl = info![NSString(string: "PHImageFileURLKey")] as! NSURL
-//                    self.imageUrlsToDelete.append(imageUrl)
-//                    
-//                }
-                
               
 
             })
