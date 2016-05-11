@@ -24,6 +24,9 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
     var selectedPhotos = [String]()
 
     let reuseIdentifier = "photoCell"
+    
+    let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+
 
 
     @IBOutlet var noPhotosLabel: UILabel!
@@ -72,6 +75,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         let fm = NSFileManager.defaultManager()
         let path = documentsDirectory()
         let items = try! fm.contentsOfDirectoryAtPath(path as String)
+        
         
         for item in items {
             let imagePath = fileInDocumentsDirectory(item)
@@ -226,30 +230,14 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         self.selectedPhotos.removeAll()
         
         for indexpath  in indexpaths! {
-            let cell = collectionView!.cellForItemAtIndexPath(indexpath )
-            
             let imagePath = fileInDocumentsDirectory(imageFileNames[indexpath.item])
-            selectedPhotos.append(imagePath)
-            
-            let alert = UIAlertController(title: "Delete Image", message: "Are you sure you want to delete this image(s)?", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: {(alertAction)in
-                //Do Delete Photo
-                self.deleteItems(self.selectedPhotos)
-                self.loadImages()
-                self.selectedPhotos.removeAll()
-            }))
-            alert.addAction(UIAlertAction(title: "No", style: .Cancel, handler: {(alertAction)in
-                //Do not delete photo
-                alert.dismissViewControllerAnimated(true, completion: nil)
-            }))
-            self.presentViewController(alert, animated: true, completion: nil)
-            
-
+            self.selectedPhotos.append(imagePath)
         }
+        
+        ShowAlertToDeleteItems()
 
-        self.deselectAllCellsInCollectionView()
 
-        }
+    }
     
     
     // MARK:- Delete Items
@@ -270,6 +258,30 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         }
     }
     
+    func ShowAlertToDeleteItems(){
+        
+        if !self.selectedPhotos.isEmpty {
+            let alert = UIAlertController(title: "Delete Image", message: "Are you sure want to delete image(s)?", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: {(alertAction)in
+                //Do Delete Photo
+                
+                self.deleteItems(self.selectedPhotos)
+                self.loadImages()
+                self.selectedPhotos.removeAll()
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .Cancel, handler: {(alertAction)in
+                //Do not delete photo
+                alert.dismissViewControllerAnimated(true, completion: nil)
+            }))
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        }
+        
+        self.deselectAllCellsInCollectionView()
+
+        
+    }
+    
     @IBOutlet weak var unlockButton: UIBarButtonItem!
     
     @IBAction func unlockButtonClicked(sender: AnyObject) {
@@ -279,33 +291,13 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         self.selectedPhotos.removeAll()
         
         for indexpath  in indexpaths! {
-            let cell = collectionView!.cellForItemAtIndexPath(indexpath )
-            
-//            collectionView?.deselectItemAtIndexPath(indexpath, animated: true)
             let imagePath = fileInDocumentsDirectory(imageFileNames[indexpath.item])
             let image : UIImage = self.loadImageFromPath(imagePath)!
             selectedPhotos.append(imagePath)
             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         }
-        if !indexpaths!.isEmpty {
-                let alert = UIAlertController(title: "Delete Image", message: "Are you sure you want to delete this image(s) after movies to Photos App?", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: {(alertAction)in
-                    //Do Delete Photo
-
-                    self.deleteItems(self.selectedPhotos)
-                    self.loadImages()
-                    self.selectedPhotos.removeAll()
-                }))
-                alert.addAction(UIAlertAction(title: "No", style: .Cancel, handler: {(alertAction)in
-                    //Do not delete photo
-                    alert.dismissViewControllerAnimated(true, completion: nil)
-                }))
-            self.presentViewController(alert, animated: true, completion: nil)
-
-        }
-
-        self.deselectAllCellsInCollectionView()
-
+       
+        ShowAlertToDeleteItems()
         
     }
     
@@ -327,16 +319,19 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
             
+        let cell: PhotoThumbnail = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PhotoThumbnail
+        cell.imgView.image = nil
+        
+        //For lazy loading image from Document Directory        
+        dispatch_async(dispatch_get_global_queue(priority, 0), {
+            let imagePath = self.fileInDocumentsDirectory(self.imageFileNames[indexPath.item])
+            dispatch_async(dispatch_get_main_queue(), {
+                cell.setThumbnailImage(self.loadImageFromPath(imagePath)!)
+            })
+        })
+        return cell
             
-            
-            let cell: PhotoThumbnail = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PhotoThumbnail
-            
-                let imagePath = fileInDocumentsDirectory(imageFileNames[indexPath.item])
-                cell.setThumbnailImage(loadImageFromPath(imagePath)!)
-            
-            return cell
-            
-        }
+    }
     
         
 
@@ -390,8 +385,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
             self.SaveImagesSelectedByUser(assets)
            
 
-            let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-            dispatch_async(dispatch_get_global_queue(priority, 0), {
+            dispatch_async(dispatch_get_global_queue(self.priority, 0), {
                 PHPhotoLibrary.sharedPhotoLibrary().performChanges( {
                     PHAssetChangeRequest.deleteAssets(self.tempPHAssets)
                     },

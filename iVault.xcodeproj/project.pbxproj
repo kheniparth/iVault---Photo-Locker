@@ -30,7 +30,6 @@
 		7EBF2A5B1CD6732A00076342 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EBF2A591CD6732A00076342 /* MainInterface.storyboard */; };
 		7EBF2A5F1CD6732A00076342 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7EBF2A551CD6732A00076342 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7EE293AE1CD58D5000E77765 /* ImageScrollView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE293AD1CD58D5000E77765 /* ImageScrollView.framework */; };
-		7EE293B01CD5B58F00E77765 /* TempLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE293AF1CD5B58F00E77765 /* TempLockViewController.swift */; };
 		BB73E8CBBB9E9C61E18F2E4C /* Pods_iVaultTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A74C83FD90B34ED75AE747E /* Pods_iVaultTests.framework */; };
 		D9A423C7ACD60BE57D6C75EF /* Pods_iVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E4C48590C5C6AC0F324294 /* Pods_iVault.framework */; };
 /* End PBXBuildFile section */
@@ -114,7 +113,6 @@
 		7EBF2A5C1CD6732A00076342 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EBF2A631CD6733100076342 /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ShareExtension.entitlements; sourceTree = "<group>"; };
 		7EE293AD1CD58D5000E77765 /* ImageScrollView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageScrollView.framework; path = "Pods/../build/Debug-iphoneos/ImageScrollView.framework"; sourceTree = "<group>"; };
-		7EE293AF1CD5B58F00E77765 /* TempLockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempLockViewController.swift; sourceTree = "<group>"; };
 		B05B7D79566A56BAAEC5F97C /* Pods-iVault.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iVault.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iVault/Pods-iVault.debug.xcconfig"; sourceTree = "<group>"; };
 		B2B805C59AE848DBE5DFF330 /* Pods-iVault.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iVault.release.xcconfig"; path = "Pods/Target Support Files/Pods-iVault/Pods-iVault.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,7 +200,6 @@
 				7E31EE4E1CC15484008B725C /* AppDelegate.swift */,
 				7E31EE501CC15484008B725C /* ViewController.swift */,
 				7E7A52AD1CC2810100677D44 /* AuthenticationViewController.swift */,
-				7EE293AF1CD5B58F00E77765 /* TempLockViewController.swift */,
 				7E7A52B31CC29B9800677D44 /* PhotoAlbumViewController.swift */,
 				7E8667CF1CCBEE310004CB9F /* Main.storyboard */,
 				7EBB2D091CD3B8A400D41F22 /* PhotoSliderViewController.swift */,
@@ -548,7 +545,6 @@
 				7EBB2D0A1CD3B8A400D41F22 /* PhotoSliderViewController.swift in Sources */,
 				7EBB2D081CD3B6D200D41F22 /* PhotoSliderItemController.swift in Sources */,
 				7E31EE4F1CC15484008B725C /* AppDelegate.swift in Sources */,
-				7EE293B01CD5B58F00E77765 /* TempLockViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -877,6 +873,7 @@
 				7EBF2A621CD6732A00076342 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
