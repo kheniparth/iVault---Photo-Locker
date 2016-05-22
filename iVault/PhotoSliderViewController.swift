@@ -23,10 +23,12 @@ class PhotoSliderViewController: UIViewController, UIPageViewControllerDataSourc
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.hidesBarsOnTap
+        
         createPageViewController()
         setupPageControl()
     }
+    
+    
     
     private func createPageViewController() {
         
@@ -44,6 +46,8 @@ class PhotoSliderViewController: UIViewController, UIPageViewControllerDataSourc
             
             
         }
+       
+
         
         pageViewController = pageController
         addChildViewController(pageViewController!)

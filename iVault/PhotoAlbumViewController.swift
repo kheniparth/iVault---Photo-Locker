@@ -80,24 +80,24 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         for item in items {
             let imagePath = fileInDocumentsDirectory(item)
             if let image = try UIImage(contentsOfFile: imagePath){
-                self.imageFileNames.append(item)
+                imageFileNames.append(item)
             }
         }
 
-        if self.imageFileNames.count >= 0{
+        if imageFileNames.count >= 0{
             
             
-            let photoCnt = self.imageFileNames.count
+            let photoCnt = imageFileNames.count
             
 //            print("total \(photoCnt) images found")
             if(photoCnt == 0){
-                self.noPhotosLabel.hidden = false
+                noPhotosLabel.hidden = false
             }else{
-                self.noPhotosLabel.hidden = true
+                noPhotosLabel.hidden = true
             }
         }
         
-        self.collectionView.reloadData()
+        collectionView.reloadData()
 
 
     }
@@ -142,26 +142,24 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         
         
         // Get size of the collectionView cell for thumbnail image
-        if let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout{
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout{
             let cellSize = layout.itemSize
-            self.collectionView.sizeThatFits(CGSizeMake(cellSize.width,cellSize.height))
+            collectionView.sizeThatFits(CGSizeMake(cellSize.width,cellSize.height))
 
         }
 
-        self.editing = false
+        editing = false
         
-        self.collectionView.backgroundColor = UIColor.blackColor()
+        collectionView.backgroundColor = UIColor.blackColor()
 
         
         self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
         self.navigationController?.toolbar.barStyle = UIBarStyle.Black
         self.navigationController?.setToolbarHidden(true, animated: true)
-        self.navigationController?.hidesBarsOnTap = false   //!! Use optional chaining
         
         //fetch the photos from collection
         copySharedImagesToDocumentDirectory()
         loadImages()
-//        self.collectionView.reloadData()
     }
     
 
@@ -203,6 +201,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
             
         }else{
             self.navigationController?.setToolbarHidden(true, animated: true)
+            selectedPhotos.removeAll()
             deselectAllCellsInCollectionView()
         }
     }
@@ -213,10 +212,10 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         
         
         for indexpath  in indexpaths! {
-            //Mark:- Error
-            let cell = collectionView.cellForItemAtIndexPath(indexpath)
-            cell!.layer.borderWidth = 0.0
-            cell!.layer.borderColor = nil
+            if let cell = collectionView.cellForItemAtIndexPath(indexpath){
+                cell.layer.borderWidth = 0.0
+                cell.layer.borderColor = nil
+            }
         }
         
     }
@@ -227,7 +226,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
 
         
         let indexpaths = collectionView?.indexPathsForSelectedItems()
-        self.selectedPhotos.removeAll()
+        selectedPhotos.removeAll()
         
         for indexpath  in indexpaths! {
             let imagePath = fileInDocumentsDirectory(imageFileNames[indexpath.item])
@@ -260,7 +259,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
     
     func ShowAlertToDeleteItems(){
         
-        if !self.selectedPhotos.isEmpty {
+        if !selectedPhotos.isEmpty {
             let alert = UIAlertController(title: "Delete Image", message: "Are you sure want to delete image(s)?", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: {(alertAction)in
                 //Do Delete Photo
@@ -273,11 +272,11 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
                 //Do not delete photo
                 alert.dismissViewControllerAnimated(true, completion: nil)
             }))
-            self.presentViewController(alert, animated: true, completion: nil)
+            presentViewController(alert, animated: true, completion: nil)
             
         }
         
-        self.deselectAllCellsInCollectionView()
+        deselectAllCellsInCollectionView()
 
         
     }
@@ -288,11 +287,11 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         
         
         let indexpaths = collectionView?.indexPathsForSelectedItems()
-        self.selectedPhotos.removeAll()
+        selectedPhotos.removeAll()
         
         for indexpath  in indexpaths! {
             let imagePath = fileInDocumentsDirectory(imageFileNames[indexpath.item])
-            let image : UIImage = self.loadImageFromPath(imagePath)!
+            let image : UIImage = loadImageFromPath(imagePath)!
             selectedPhotos.append(imagePath)
             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         }
@@ -311,8 +310,8 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
     //UICollectionViewDataSource Methods (Remove the "!" on variables in the function prototype)
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         var count: Int = 0
-        if(self.imageFileNames.count > 0){
-            count = self.imageFileNames.count
+        if(imageFileNames.count > 0){
+            count = imageFileNames.count
         }
         return count;
     }
@@ -322,7 +321,8 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         let cell: PhotoThumbnail = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PhotoThumbnail
         cell.imgView.image = nil
         cell.layer.shouldRasterize = true
-        cell.layer.rasterizationScale = UIScreen.mainScreen().scale //[UIScreen mainScreen].scale
+        cell.layer.rasterizationScale = UIScreen.mainScreen().scale
+        
         
         //For lazy loading image from Document Directory        
         dispatch_async(dispatch_get_global_queue(priority, 0), {
@@ -331,6 +331,18 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
                 cell.setThumbnailImage(self.loadImageFromPath(imagePath)!)
             })
         })
+        
+        if selectedPhotos.indexOf(imageFileNames[indexPath.item]) == nil {
+            // Unselected
+            cell.layer.borderWidth = 0.0
+            cell.layer.borderColor = nil
+
+        } else {
+            // selected
+            cell.layer.borderWidth = 5.0
+            cell.layer.borderColor = UIColor.orangeColor().CGColor
+        }
+        
         return cell
             
     }
@@ -339,24 +351,24 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if editing{
-            let cell = collectionView.cellForItemAtIndexPath(indexPath)
-            cell!.layer.borderWidth = 5.0
-            cell!.layer.borderColor = UIColor.orangeColor().CGColor
+            let cell : UICollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath)!
+            if let indexSelecionado = selectedPhotos.indexOf(imageFileNames[indexPath.item]) {
+                selectedPhotos.removeAtIndex(indexSelecionado)
+                cell.layer.borderWidth = 0.0
+                cell.layer.borderColor = nil
+
+            } else {
+                selectedPhotos.append(imageFileNames[indexPath.item])
+                cell.layer.borderWidth = 5.0
+                cell.layer.borderColor = UIColor.orangeColor().CGColor
+
+            }
         }
     }
     
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-        if editing {
-            if let foundIndex = selectedPhotos.indexOf(imageFileNames[indexPath.item]) {
-                selectedPhotos.removeAtIndex(foundIndex)
-            }
-        }
-                let cell = collectionView.cellForItemAtIndexPath(indexPath)
-                cell!.layer.borderWidth = 0.0
-                cell!.layer.borderColor = nil
-            
-    }
 
+
+    
    
     //UICollectionViewDelegateFlowLayout methods
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat{
@@ -377,7 +389,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         
         if picking == true{
         let pickerController = DKImagePickerController()
-        self.tempPHAssets.removeAll()
+        tempPHAssets.removeAll()
 
         pickerController.didSelectAssets = { (assets: [DKAsset]) in
             
@@ -416,7 +428,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         }
         
         
-        self.presentViewController(pickerController, animated: true) {}
+        presentViewController(pickerController, animated: true) {}
         }
         
        
@@ -436,7 +448,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
                 if let jpegData = UIImageJPEGRepresentation(image!, 80) {
                     jpegData.writeToFile(imagePath, atomically: true)
                     self.loadImages()
-//                    self.collectionView.reloadData()
                     
                 }
               

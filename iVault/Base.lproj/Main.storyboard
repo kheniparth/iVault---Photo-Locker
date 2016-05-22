@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Pv6-Be-uDU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Pv6-Be-uDU">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -201,7 +201,6 @@
         <!--Navigation Controller-->
         <scene sceneID="DQH-o9-lEx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JYJ-o3-ebV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pv6-Be-uDU" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MuG-xX-heY">
@@ -213,6 +212,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="mWz-3i-Xhg"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JYJ-o3-ebV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="406" y="389"/>
         </scene>
@@ -259,7 +259,9 @@
         <!--Page View Controller-->
         <scene sceneID="w3d-Sw-mIE">
             <objects>
-                <pageViewController storyboardIdentifier="PhotoSliderController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="xDI-0c-3Va" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="PhotoSliderController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="xDI-0c-3Va" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7w0-Ph-4PO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4012" y="416"/>

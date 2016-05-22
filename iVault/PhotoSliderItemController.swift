@@ -20,23 +20,9 @@ class PhotoSliderItemController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let image : UIImage = self.loadImageFromPath(fileInDocumentsDirectory(imageName))!        
         imageScrollView.displayImage(image)
-        
-        
     }
-
-    //Mark:- Hide Bars on tap , uncomment below lines to unable the feature
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        self.navigationController?.hidesBarsOnTap = true
-//    }
-//
-//    override func viewDidDisappear(animated: Bool) {
-//        super.viewDidDisappear(animated)
-//        self.navigationController?.hidesBarsOnTap = false
-//    }
 
     // Get the documents Directory
     
