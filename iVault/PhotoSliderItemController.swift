@@ -27,15 +27,16 @@ class PhotoSliderItemController: UIViewController {
         
     }
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        self.navigationController?.hidesBarsOnTap = true
-    }
-
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        self.navigationController?.hidesBarsOnTap = false
-    }
+    //Mark:- Hide Bars on tap , uncomment below lines to unable the feature
+//    override func viewDidAppear(animated: Bool) {
+//        super.viewDidAppear(animated)
+//        self.navigationController?.hidesBarsOnTap = true
+//    }
+//
+//    override func viewDidDisappear(animated: Bool) {
+//        super.viewDidDisappear(animated)
+//        self.navigationController?.hidesBarsOnTap = false
+//    }
 
     // Get the documents Directory
     

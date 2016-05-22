@@ -185,11 +185,12 @@ class AuthenticationViewController: UIViewController {
         if let loggedInVC = storyboard?.instantiateViewControllerWithIdentifier("PhotoAlbum") {
             
             dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                
+            
                 self.navigationController?.pushViewController(loggedInVC, animated: true)
+//                self.presentViewController(loggedInVC, animated: true, completion: nil)
                 
             }
-            
+        
         }
         
     }

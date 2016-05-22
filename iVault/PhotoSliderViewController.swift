@@ -40,7 +40,7 @@ class PhotoSliderViewController: UIViewController, UIPageViewControllerDataSourc
              firstController = getItemController(index)!
             }
             let startingViewControllers: NSArray = [firstController]
-            pageController.setViewControllers(startingViewControllers   as! [UIViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+            pageController.setViewControllers(startingViewControllers as? [UIViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
             
             
         }
@@ -98,14 +98,15 @@ class PhotoSliderViewController: UIViewController, UIPageViewControllerDataSourc
     }
     
     // MARK: - Page Indicator
-    
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return imageFileNames.count
-    }
-    
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return index
-    }
+
+    // Uncomment below delegate methods if you want to show page control dots in slider.
+//    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+//        return imageFileNames.count
+//    }
+//    
+//    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+//        return index
+//    }
 
 
 }

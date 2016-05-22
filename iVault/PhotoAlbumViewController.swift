@@ -118,7 +118,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
                         jpegData.writeToFile(self.fileInDocumentsDirectory(item), atomically: true)
 //                        print("new image at = \(filePath)/\(item)")
 
-                            var error:NSErrorPointer = NSErrorPointer()
+                            let error:NSErrorPointer = NSErrorPointer()
                             do{
                                 try NSFileManager.defaultManager().removeItemAtPath(imagePath)
 //                                print("item delete at path \(imagePath)")
@@ -161,7 +161,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         //fetch the photos from collection
         copySharedImagesToDocumentDirectory()
         loadImages()
-        self.collectionView.reloadData()
+//        self.collectionView.reloadData()
     }
     
 
@@ -209,7 +209,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
     
     
     func deselectAllCellsInCollectionView(){
-        var indexpaths = collectionView?.indexPathsForSelectedItems()
+        let indexpaths = collectionView?.indexPathsForSelectedItems()
         
         
         for indexpath  in indexpaths! {
@@ -231,7 +231,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         
         for indexpath  in indexpaths! {
             let imagePath = fileInDocumentsDirectory(imageFileNames[indexpath.item])
-            self.selectedPhotos.append(imagePath)
+            selectedPhotos.append(imagePath)
         }
         
         ShowAlertToDeleteItems()
@@ -247,7 +247,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         for item in items {
             // remove item
             if !item.isEmpty {
-                var error:NSErrorPointer = NSErrorPointer()
+                let error:NSErrorPointer = NSErrorPointer()
                 do{
                     try NSFileManager.defaultManager().removeItemAtPath(item)
                 }catch{
@@ -308,19 +308,21 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
 
     
         
-        //UICollectionViewDataSource Methods (Remove the "!" on variables in the function prototype)
-        func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-            var count: Int = 0
-            if(self.imageFileNames.count > 0){
-                count = self.imageFileNames.count
-            }
-            return count;
+    //UICollectionViewDataSource Methods (Remove the "!" on variables in the function prototype)
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+        var count: Int = 0
+        if(self.imageFileNames.count > 0){
+            count = self.imageFileNames.count
         }
+        return count;
+    }
         
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
             
         let cell: PhotoThumbnail = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PhotoThumbnail
         cell.imgView.image = nil
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.mainScreen().scale //[UIScreen mainScreen].scale
         
         //For lazy loading image from Document Directory        
         dispatch_async(dispatch_get_global_queue(priority, 0), {
@@ -434,7 +436,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
                 if let jpegData = UIImageJPEGRepresentation(image!, 80) {
                     jpegData.writeToFile(imagePath, atomically: true)
                     self.loadImages()
-                    self.collectionView.reloadData()
+//                    self.collectionView.reloadData()
                     
                 }
               
