@@ -104,8 +104,8 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
     
     func copySharedImagesToDocumentDirectory(){
         
-        let containerURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.iVault.ShareExtension")
-        let filePath = containerURL!.path! as NSString
+        if let containerURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.iVault.ShareExtension"){
+        let filePath = containerURL.path! as NSString
         let items = try! NSFileManager.defaultManager().contentsOfDirectoryAtPath(filePath as String)
         
         for item in items {
@@ -133,7 +133,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
             }
             
         }
-        
+        }
 
     }
 
